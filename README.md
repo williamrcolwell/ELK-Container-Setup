@@ -10,10 +10,10 @@ https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Diagrams/Week
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yaml file may be used to install only certain pieces of it, such as Filebeat.  These are all found in the /ansible subfolder of this directory.
 
-install-elk.yml
-DVWA.yml
-filebeat-playbook.yml
-metricbeat-playbook.yml
+install-elk.yml (https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Ansible/install-elk.yml)
+DVWA.yml (https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Ansible/DVWA.yml)
+filebeat-playbook.yml (https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Ansible/filebeat-playbook.yml)
+metricbeat-playbook.yml (https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Ansible/metricbeat-playbook.yml)
 
 # This document contains the following details:
 
@@ -63,69 +63,17 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 The playbook implements the following tasks:
 
-•	First the playbook will install Docker.io
-•	Then follows that by installing the python3-pip and then installing the docker module so it defaults to pip3.
-•	It increases the memory so that there is enough to run the ELK container.
+1. First the playbook will install Docker.io
+2. Then follows that by installing the python3-pip and then installing the docker module so it defaults to pip3.
+3. It increases the memory so that there is enough to run the ELK container.
 
-  Once the above steps are completed it then downloads and installs the ELK container.
+Once the above steps are completed it then downloads and installs the ELK container.
 
-Full .yaml file below for convenience:
-
----
-- name: Configure Elk VM with Docker
-  hosts: elk
-  remote_user: sysadmin
-  become: true
-  tasks:
-    # Use apt module
-    - name: Install docker.io
-      apt:
-        update_cache: yes
-        force_apt_get: yes
-        name: docker.io
-        state: present
-
-      # Use apt module
-    - name: Install python3-pip
-      apt:
-        force_apt_get: yes
-        name: python3-pip
-        state: present
-
-      # Use pip module (It will default to pip3)
-    - name: Install Docker module
-      pip:
-        name: docker
-        state: present
-
-      # Use command module
-    - name: Increase virtual memory
-      command: sysctl -w vm.max_map_count=262144
-
-      # Use sysctl module
-    - name: Use more memory
-      sysctl:
-        name: vm.max_map_count
-        value: '262144'
-        state: present
-        reload: yes
-
-      # Use docker_container module
-    - name: download and launch a docker elk container
-      docker_container:
-        name: elk
-        image: sebp/elk:761
-        state: started
-        restart_policy: always
-        # Please list the ports that ELK runs on
-        published_ports:
-          -  5601:5601
-          -  9200:9200
-          -  5044:5044
+YAML file found here: https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Ansible/install-elk.yml
 
 The following screenshot displays the result of running docker ps after successfully configuring the ELK instance.
- 
-Note: The following image link needs to be updated. Replace docker_ps_output.png with the name of your screenshot image file.
+
+https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Diagrams/Screen%20Shot%202020-09-16%20at%202.33.22%20PM.png
 
 # Target Machines & Beats
 
