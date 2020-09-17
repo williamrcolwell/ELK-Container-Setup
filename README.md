@@ -31,9 +31,9 @@ metricbeat-playbook.yml (https://github.com/williamrcolwell/ELK-Container-Setup/
 # Description of the Topology
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.  Load balancing ensures that the application will be highly available, in addition to restricting inbound access to the network.  Load balancers are necessary for today’s applications.  They ensure that no one server will be overloaded, and the inbound traffic will be routed to other identical servers.  In this diagram the traffic is shared by the webservers.  In addition, load balancers run consistent health checks on the servers to determine which are available for the inbound traffic requests.  Load balancers can aid in protecting against denial of service attacks as it can distribute the traffic evenly.  The advantage of the jump box is that it provides access controls.  In general, a jump box is a secure computer that administrators can login to before connecting to any of the other servers within the network or perform other administrative tasks.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the file systems of the virtual machines on the network and system metrics.  For example, Filebeat monitors log files or specified locations and collects log data to be forwarded for indexing.  While Filebeat is a log management tool, Metricbeat is a monitoring tool.  It records metrics from the system and services including CPU, memory, Redis, and NGINX.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the file systems of the virtual machines on the network and system metrics.  For example, Filebeat monitors log files or specified locations and collects log data to be forwarded for indexing.  While Filebeat is a log management tool, Metricbeat is a monitoring tool.  It records metrics from the system and various services such as CPU Usage and priviledge escalations.
 
-The configuration details of each machine may be found below. Note: Use the Markdown Table Generator to add/remove values from the table.
+The configuration details of each machine may be found below. 
 
 |      Name      |      Function |      IP Address |      Operating System |
 |----------------|---------------|-----------------|-----------------------|
@@ -93,8 +93,10 @@ Filebeat
 Metricbeat
 
 These Beats allow us to collect the following information from each machine:
--Filebeat: This monitors logs files and/or other locations you specify.  This will detect changes to the file system and in this case specifically Apache logs.  
--Metricbeat: This will monitor and collect information regarding changes in the system.  We will use this monitor for sudo priviledges, CPU usage, and more.
+
+Filebeat: This monitors logs files and/or other locations you specify.  This will detect changes to the file system and in this case specifically Apache logs.  
+
+Metricbeat: This will monitor and collect information regarding changes in the system.  We will use this monitor for sudo priviledges, CPU usage, etc.
 
 # Using the Playbook
 
