@@ -63,7 +63,7 @@ A summary of the access policies in place can be found in the table below.
 
 # Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it allows you to perform mass updates, configurations, etc. at once instead of on each separate machine.  You can deploy multiple identical virtual machines in an instant.
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it allows you to centralize the configuration file management and deployment.  You can deploy multiple identical virtual machines at the same time using ansible.
 
 The playbook implements the following tasks:
 
@@ -89,8 +89,7 @@ Web-3 (DVWA) VM: 10.0.0.7
 
 We have installed the following Beats on these machines:
 
-Filebeat
-Metricbeat
+Filebeat and Metricbeat
 
 These Beats allow us to collect the following information from each machine:
 
@@ -102,7 +101,7 @@ Metricbeat: This will monitor and collect information regarding changes in the s
 
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
 
-1. SSH into the control node and follow the steps below:
+1. SSH into the control node and follow the steps below.
 2. Copy the /etc/ansible/install-elk.yml file to the docker session.
-3. Update the Ansible host file to include the IP addresses of the servers to have ELK installed under the ELK header (compared to Webservers)
+3. Update the Ansible host file to include the IP addresses of the servers to have ELK installed under the ELK header (compared to Webservers).
 4. Run the playbook and navigate to the public IP address of the ELK server (http://[your ELK Server Public IP]:5601/app/kibana) to check that the installation worked as expected.
