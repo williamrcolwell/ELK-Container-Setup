@@ -95,7 +95,7 @@ These Beats allow us to collect the following information from each machine:
 
 Filebeat: This monitors logs files and/or other locations you specify.  This will detect changes to the file system and in this case specifically Apache logs.  
 
-Metricbeat: This will monitor and collect information regarding changes in the system.  We will use this monitor for sudo priviledges, CPU usage, etc.
+Metricbeat: This will monitor and collect information regarding changes in the operating system.  We will use this monitor for sudo priviledges, CPU usage, etc.
 
 # Using the Playbook
 
