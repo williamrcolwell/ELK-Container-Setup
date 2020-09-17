@@ -16,6 +16,7 @@ filebeat-playbook.yml
 metricbeat-playbook.yml
 
 # This document contains the following details:
+
 1. Description of the Topology
 2. Access Policies
 3. ELK Configuration 
@@ -38,7 +39,7 @@ The configuration details of each machine may be found below. Note: Use the Mark
 | Web-3 (DBWA 3) | Webserver     | 10.0.0.7        | Linux                 |
 | ELK            | Monitoring    | 10.1.0.4        | Linux                 |
 
-Access Policies
+# Access Policies
 
 The machines on the internal network are not exposed to the public Internet.
 
@@ -47,6 +48,7 @@ Only the Jump Box machine can accept connections from the Internet. Access to th
 Machines within the network can only be accessed by each other.  Webservers 1-3 (DVWA VM 1, DVWA VM 2, DVWA VM 3 send traffic to the ELK server.  The Jump Box has access to the ELK VM with the IP address 13.66.198.8
 
 A summary of the access policies in place can be found in the table below.
+
 | Name           | Publicly Available | Allowed IP    |
 |----------------|--------------------|---------------|
 | Jump Box       | Yes                | 23.124.110.82 |
@@ -128,19 +130,22 @@ Note: The following image link needs to be updated. Replace docker_ps_output.png
 # Target Machines & Beats
 
 This ELK server is configured to monitor the following machines:
-•	Web-1 (DVWA) VM: 10.0.0.5
-•	Web-2 (DVWA) VM: 10.0.0.6
-•	Web-3 (DVWA) VM: 10.0.0.7
+
+-Web-1 (DVWA) VM: 10.0.0.5
+-Web-2 (DVWA) VM: 10.0.0.6
+-Web-3 (DVWA) VM: 10.0.0.7
 
 We have installed the following Beats on these machines:
-•	Filebeat
-•	Metricbeat
+
+-Filebeat
+-Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-•	Filebeat: This monitors logs files and/or other locations you specify.  This will detect changes to the file system and in this case specifically Apache logs.  
-•	Metricbeat: This will monitor and collect information regarding changes in the system.  We will use this monitor for sudo priviledges, CPU usage, and more.
+-Filebeat: This monitors logs files and/or other locations you specify.  This will detect changes to the file system and in this case specifically Apache logs.  
+-Metricbeat: This will monitor and collect information regarding changes in the system.  We will use this monitor for sudo priviledges, CPU usage, and more.
 
 # Using the Playbook
+
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
 
 1. SSH into the control node and follow the steps below:
