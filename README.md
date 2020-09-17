@@ -11,9 +11,13 @@ https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Diagrams/Week
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yaml file may be used to install only certain pieces of it, such as Filebeat.  These are all found in the /ansible subfolder of this directory.
 
 install-elk.yml (https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Ansible/install-elk.yml)
+
 DVWA.yml (https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Ansible/DVWA.yml)
+
 filebeat-playbook.yml (https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Ansible/filebeat-playbook.yml)
+
 metricbeat-playbook.yml (https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Ansible/metricbeat-playbook.yml)
+
 
 # This document contains the following details:
 
