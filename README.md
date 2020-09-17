@@ -105,3 +105,5 @@ In order to use the playbook, you will need to have an Ansible control node alre
 2. Copy the /etc/ansible/install-elk.yml file to the docker session.
 3. Update the Ansible host file to include the IP addresses of the servers to have ELK installed under the ELK header (compared to Webservers).
 4. Run the playbook and navigate to the public IP address of the ELK server (http://[your ELK Server Public IP]:5601/app/kibana) to check that the installation worked as expected.
+
+You should load a page that looks like this: https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Diagrams/Screen%20Shot%202020-08-31%20at%208.17.23%20PM.png
