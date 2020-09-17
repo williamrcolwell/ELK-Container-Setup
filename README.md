@@ -1,6 +1,6 @@
 # ELK-Container-Setup
 
-This repository contains the necessary documents to install an ELK Container/Server
+This repository contains the necessary documents to install an ELK Container/Server.  Note: any image (.png) file should be opened fully as the Git "preview" will cut off some of the image.
 
 # Automated ELK Stack Deployment
 
