@@ -43,6 +43,17 @@ The configuration details of each machine may be found below.
 | Web-3 (DBWA 3) | Webserver     | 10.0.0.7        | Linux                 |
 | ELK            | Monitoring    | 10.1.0.4        | Linux                 |
 
+In addition there is a load balancer infront of the 3 webservers and the ELK server so that no server gets overloaded and there is always one available.  There are 3 availability zones:
+
+Availability Zone 1:
+Web-1 and Web-2
+
+Availability Zone 2:
+Web-3
+
+Avaiability Zone 3:
+ELK
+
 # Access Policies
 
 The machines on the internal network are not exposed to the public Internet.
@@ -61,6 +72,8 @@ A summary of the access policies in place can be found in the table below.
 | Web-3 (DBWA 3) | No                 | 10.0.0.1-254  |
 | ELK            | No                 | 10.0.0.1-254  |
 
+The ELK Stack is a powerful open-source tool to help monitor, aggregate, and visualize various system data (logs, metrics.).
+
 # Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it allows you to centralize the configuration file management and deployment.  You can deploy multiple identical virtual machines at the same time using ansible.
@@ -69,7 +82,7 @@ The playbook implements the following tasks:
 
 1. First the playbook will install Docker.io
 2. Then follows that by installing the python3-pip and then installing the docker module so it defaults to pip3.
-3. It increases the memory so that there is enough to run the ELK container.
+3. It increases the memory so that the required amount is allowed to run the ELK container.
 
 Once the above steps are completed it then downloads and installs the ELK container.
 
@@ -102,8 +115,10 @@ Metricbeat: This will monitor and collect information regarding changes in the o
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
 
 1. SSH into the control node and follow the steps below.
-2. Copy the /etc/ansible/install-elk.yml file to the docker session.
+2. Copy the /etc/ansible/install-elk.yml file from git and navigate from the jump box to the ansible container.
 3. Update the Ansible host file to include the IP addresses of the servers to have ELK installed under the ELK header (compared to Webservers).
 4. Run the playbook and navigate to the public IP address of the ELK server (http://[your ELK Server Public IP]:5601/app/kibana) to check that the installation worked as expected.
 
 You should load a page that looks like this: https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Diagrams/Screen%20Shot%202020-08-31%20at%208.17.23%20PM.png
+
+To actually run the playbook you would use the command: ansible-playbook [specify path/.yml playbook file].
