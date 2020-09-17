@@ -79,14 +79,14 @@ https://github.com/williamrcolwell/ELK-Container-Setup/blob/master/Diagrams/Scre
 
 This ELK server is configured to monitor the following machines:
 
--Web-1 (DVWA) VM: 10.0.0.5
--Web-2 (DVWA) VM: 10.0.0.6
--Web-3 (DVWA) VM: 10.0.0.7
+Web-1 (DVWA) VM: 10.0.0.5
+Web-2 (DVWA) VM: 10.0.0.6
+Web-3 (DVWA) VM: 10.0.0.7
 
 We have installed the following Beats on these machines:
 
--Filebeat
--Metricbeat
+Filebeat
+Metricbeat
 
 These Beats allow us to collect the following information from each machine:
 -Filebeat: This monitors logs files and/or other locations you specify.  This will detect changes to the file system and in this case specifically Apache logs.  
@@ -99,4 +99,4 @@ In order to use the playbook, you will need to have an Ansible control node alre
 1. SSH into the control node and follow the steps below:
 2. Copy the /etc/ansible/install-elk.yml file to the docker session.
 3. Update the Ansible host file to include the IP addresses of the servers to have ELK installed under the ELK header.
-4. Run the playbook and navigate to the public IP address of the ELK server (http://20.36.198.2:5601/app/kibana) to check that the installation worked as expected. (Replace the IP in the URL with your own ELKVM's Public IP Address).
+4. Run the playbook and navigate to the public IP address of the ELK server (http://[your ELK Server Public IP]/app/kibana) to check that the installation worked as expected.
